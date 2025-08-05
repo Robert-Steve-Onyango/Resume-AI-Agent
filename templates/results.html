@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Results</title>
+    <link rel="stylesheet" href="/static/main.css">
+</head>
+<body>
+    <header>
+        <h1>Resume Analysis Results</h1>
+    </header>
+    <div class="container">
+        <h2>Your Profile</h2>
+        {% if profile %}
+        <ul>
+            <li><strong>Name:</strong> {{ profile.name }}</li>
+            <li><strong>Email:</strong> {{ profile.email }}</li>
+            <li><strong>Skills:</strong> {{ profile.skills | join(', ') }}</li>
+            <li><strong>Summary:</strong> {{ profile.summary }}</li>
+        </ul>
+        {% endif %}
+
+        <div class="results">
+            <h2>Recommended Jobs</h2>
+            {% if jobs %}
+            <ul>
+                {% for job in jobs %}
+                <li>
+                    <strong>{{ job.title }}</strong> at {{ job.company }}<br>
+                    <span>{{ job.location }}</span>
+                    <p>{{ job.description }}</p>
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p>No jobs found matching your profile.</p>
+            {% endif %}
+        </div>
+        <a href="/" style="display:block;margin-top:2rem;">&#8592; Back to Upload</a>
+    </div>
+</body>
+</html>

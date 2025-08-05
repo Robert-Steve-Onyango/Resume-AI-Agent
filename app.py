@@ -55,9 +55,8 @@ def api_analyze():
     jobs = fetch_job_boards(profile['skills'])
     return jsonify({**profile, 'jobs': jobs})
 
-@app.route('/healthz')
-def healthz():
-    return 'OK', 200
+@app.route('/job-finder')
+@app.route('/scroll-jobs')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=int(os.getenv('PORT', 5000)), debug=True)

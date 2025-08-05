@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume AI Agent</title>
+    <link rel="stylesheet" href="/static/main.css">
+</head>
+<body>
+    <header>
+        <h1>Resume AI Agent</h1>
+        <p>Upload your resume to get personalized job recommendations and insights!</p>
+    </header>
+    <div class="container">
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <label for="resume">Select your resume (PDF or DOCX):</label>
+            <input type="file" id="resume" name="resume" accept=".pdf,.docx" required>
+            <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                <button type="submit" name="action" value="upload">Upload</button>
+                <button type="submit" name="action" value="analyze">Analyze</button>
+                <button type="submit" name="action" value="find_jobs">Find Jobs</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
