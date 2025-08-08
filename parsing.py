@@ -1,16 +1,16 @@
 import PyPDF2
 
-def extract_text_from_pdf(pdf_path):
-    """
-    Extracts text from a PDF file using PyPDF2.
-    Args:
-        pdf_path (str): Path to the PDF file.
-    Returns:
-        str: Extracted text from the PDF.
-    """
+def extract_text(file):
+    
     text = ""
-    with open(pdf_path, 'rb') as file:
+    with open(file, 'rb') as file:
         reader = PyPDF2.PdfReader(file)
         for page in reader.pages:
             text += page.extract_text() or ""
     return text
+
+# if __name__ == "__main__":
+#     path = r''
+#     input_pdf_path = input(f"Enter PDF path (default: {path}): ") or path
+#     text = extract_text(input_pdf_path)
+#     print(text)
