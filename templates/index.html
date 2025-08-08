@@ -1,0 +1,58 @@
+    <!-- Modal for analysis results -->
+    <div id="analysisModal" class="modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.5); justify-content:center; align-items:center; z-index:1000;">
+        <div style="background:#fff; padding:2rem; border-radius:8px; min-width:350px; max-width:90vw;">
+            <h2>Resume Analysis</h2>
+            <div id="analysisResults">
+                <!-- Results will be injected here by JS -->
+            </div>
+            <button type="button" id="closeAnalysisBtn">Close</button>
+        </div>
+    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume AI Agent</title>
+    <link rel="stylesheet" href="/static/main.css">
+    <script src="/static/main.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Resume AI Agent</h1>
+        <p>Upload your resume to get personalized job recommendations and insights!</p>
+    </header>
+    <form method="post" enctype="multipart/form-data">
+        <div class="container">      
+            <input type="file" id="resume" name="resume" accept=".pdf,.docx" required>
+            <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                <button type="button" id="uploadBtn" disabled>Upload</button>
+                <button type="submit" name="action" value="analyze" id="analyzeBtn" disabled>Analyze</button>
+                <button type="submit" name="action" value="find_jobs" id="findJobsBtn" disabled>Find Jobs</button>
+            </div>
+            <div id="statusMessage" style="margin-top:1rem; color:green; font-weight:bold; display:none;"></div>
+        </div>
+    </form>
+    <!-- Modal for credentials -->
+    <div id="credentialsModal" class="modal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.5); justify-content:center; align-items:center;">
+        <div style="background:#fff; padding:2rem; border-radius:8px; min-width:300px;">
+            <h2>Enter Your Details</h2>
+            <form id="credentialsForm" style="display: flex; flex-direction: column; gap: 1rem;">
+                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required style="width: 100%; box-sizing: border-box; padding: 0.5rem;">
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required style="width: 100%; box-sizing: border-box; padding: 0.5rem;">
+                </div>
+                <div style="display: flex; gap: 1rem; justify-content: flex-end;">
+                    <button type="submit">Submit</button>
+                    <button type="button" id="closeModalBtn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Script moved to static/main.js -->
+</body>
+</html>
